@@ -1,14 +1,9 @@
 #include <iostream>
-#include <fstream>
-
-using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
-	ifstream fi("INPUT.TXT");
-	ofstream fo("OUTPUT.TXT");
 	int a, b, c, d;
-	fi >> a >> b;
+	std::cin >> a >> b;
 	c = a * b % 109;
 	d = (c + 109) % 109 + 1;
-	fo << d;
+	std::cout<< d;
 }

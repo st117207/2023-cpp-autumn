@@ -1,13 +1,10 @@
 #include <iostream>
-#include <fstream>
-using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
-	ifstream fi("INPUT.TXT");
-	ofstream fo("OUTPUT.TXT");
+	
 	long long a,b;
-	fi >> a;
+	std:: cin >> a;
 	b = a / 10;
 	b = b * b + b;
-	fo << b * 100+25;
+	std:: cout << b * 100+25;
 }

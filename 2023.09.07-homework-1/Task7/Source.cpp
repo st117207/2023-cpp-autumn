@@ -1,10 +1,9 @@
 #include <iostream>
-using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
 	long long a;
-	cin >> a;
-	cout << "The next number for the number " << a << " is " << a + 1 <<"."<< endl;
-	cout << "The previous number for the number " << a << " is " << a - 1 <<"."<< endl;
+	std::cin >> a;
+	std::cout << "The next number for the number " << a << " is " << a + 1 <<"."<< std::endl;
+	std::cout << "The previous number for the number " << a << " is " << a - 1 <<".";
 
 }

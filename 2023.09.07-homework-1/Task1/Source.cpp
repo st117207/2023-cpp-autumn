@@ -1,11 +1,7 @@
 #include <iostream>
-#include <fstream>
-using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
-	ifstream fi("INPUT.TXT");
-	ofstream fo("OUTPUT.TXT");
 	long long a, b;
-	fi >> a>>b;
-	fo <<a+b;
+	std::cin >> a>>b;
+	std::cout <<a+b;
 }
