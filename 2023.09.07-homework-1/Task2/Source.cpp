@@ -2,7 +2,7 @@
 int main(int argc, char* argv[])
 {
   
-    long long t, b, c, sum, ch, ch1, n, a, a1, res, ch2, itog, e;
+    long long b=0, ch1=0, n=0, a=0, res=0, ch2=0, itog=0;
    std:: cin >> a;
     ch1 = a + 100000;
     ch2 = -a + 100000;
