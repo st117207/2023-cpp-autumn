@@ -35,11 +35,11 @@ int main(int argc, char* argv[])
 			else
 			{
 				m5 = a / 5;
-				m1 = m1 % 5;
+				m1 = a % 5;
 			}
 		}
 
-		
+
 	}
 	std::cout << m1 << " " << m5 << " " << m10 << " " << m20 << " " << m60;
 	return EXIT_SUCCESS;

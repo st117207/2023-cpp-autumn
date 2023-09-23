@@ -39,5 +39,4 @@ int main(int argc, char* argv[])
 	}
 	std::cout << a << " " << b << " " << c;
 	return EXIT_SUCCESS;
-
 }

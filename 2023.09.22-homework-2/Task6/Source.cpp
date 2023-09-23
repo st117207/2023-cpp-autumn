@@ -13,11 +13,11 @@ int main(int argc, char* argv[])
 	j = n * 2;
 	if (n <= k)
 	{
-		res = m*2;
+		res = m * 2;
 	}
 	else
 	{
-		res = j / k*m;
+		res = j / k * m;
 		if (j % k != 0)
 		{
 			res = res + m;
