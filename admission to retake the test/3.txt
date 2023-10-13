@@ -1,0 +1,5 @@
+Пишем следующие команды в cmd последовательно:
+cd 2023-cpp-autumn
+git rm *.jpg
+git add --all --message "jpg files cleanup"
+git push
