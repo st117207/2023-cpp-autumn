@@ -92,8 +92,7 @@ int main(int argc, char* argv[])
 					std::cout << "Нельзя выполнить эту команду с пустым массивом" << std::endl;
 					system("pause");
 				}
-				std::cout << ChangeElements(a, length);
-				system("pause");
+				ChangeElements(a, length);
 				PrintArray(a, length);
 
 
@@ -124,6 +123,7 @@ int main(int argc, char* argv[])
 			}
 			default:
 				std::cout << "Неизвестная команда" << std::endl;
+				system("pause");
 				break;
 			}
 		}

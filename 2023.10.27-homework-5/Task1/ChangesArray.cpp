@@ -132,10 +132,14 @@ int ChangeElements(int* a, int length)
 {
 	if (a != nullptr)
 	{
+		int index_min = 0;
+		int index_max = 0;
 		int temp = 0;
-		temp = a[SearchIndexFirstMaxElement(a, length)];
-		a[SearchIndexFirstMaxElement(a, length)] = a[SearchIndexLastMinElement(a, length)];
-		a[SearchIndexLastMinElement(a, length)] = temp;
+		index_min = SearchIndexLastMinElement(a, length);
+		index_max = SearchIndexFirstMaxElement(a, length);
+		temp = a[index_min];
+		a[index_min] = a[index_max];
+		a[index_max] = temp;
 		return 1;
 	}
 }
