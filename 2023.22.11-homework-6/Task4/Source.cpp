@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 	int n = 0;
 	std::cin >> n;
 	hanoi(n, 1, 3);
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void hanoi(int n, int from, int to)

@@ -30,15 +30,8 @@ void hanoi(int n, int from, int to)
 	{
 		int res = 6 - from - to;
 		hanoi(n - 1, from, res);
-		if (n == 1)
-		{
-			std::cout << 0 << " " << from << " " << to << std::endl;
-
-		}
-		else
-		{
-			std::cout << n << " " << 6 - from - to << " " << 3 << std::endl;
-		}
+		std::cout << 0 << " " << from << " " << to << std::endl;
 		hanoi(n - 1, res, to);
+		std::cout << n << " " << 6 - from - to << " " << 3 << std::endl;
 	}
 }
