@@ -62,10 +62,33 @@ int main(int argc, char* argv[])
 	CGraph graph;
 	int n = 0;
 	std::cin >> n;
-	int m = 0;
-	std::cin >> m;
-	graph.ReadMatrix(m);
-	std::cout << graph.Investigation() << std::endl;
+	int a = 0;
+	int b = 0;
+	std::cin >> a;
+	std::cin >> b;
+	int* departments = new int[n];
+	for (int i = 1; i < n; ++i)
+	{
+		std::cin >> departments[i];
+	}
+	while (a != b)
+	{
+		switch (a > b)
+		{
+		case true:
+		{
+			a = departments[a - 1];
+
+			break;
+		}
+		case false:
+		{
+			b = departments[b - 1];
+			break;
+		}
+		}
+	}
+	std::cout<<a;
 	return EXIT_SUCCESS;
 }
 

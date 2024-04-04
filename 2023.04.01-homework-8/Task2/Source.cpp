@@ -274,7 +274,7 @@ int CGraph::getVertexesCountFromEdges()
 		res = (res > _edge[i].a ? res : _edge[i].a);
 		res = (res > _edge[i].b ? res : _edge[i].b);
 	}
-	return res + 1;
+	return res;
 }
 
 std::ostream& operator<<(std::ostream& stream, const SEdge& edge)
