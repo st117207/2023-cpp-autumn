@@ -30,7 +30,7 @@ public:
 	void ReadMatrix(int vertexes);
 	///ñ÷èòûâàåò äóãè ãðàôà
 	void ReadEdges(const int edges, bool haveweight = false);
-	int SmallestCircularRoute();
+	int CommonAncestor(int a, int b);
 
 private:
 	///ñîçäàåò ìàòðèöó ñìåæíîñòè n*n è ìàòðèöó ñ äóãàìè ðàçìåðà m
@@ -61,8 +61,11 @@ int main(int argc, char* argv[])
 	CGraph graph;
 	int n = 0;
 	std::cin >> n;
-	graph.ReadMatrix(n);
-	std::cout << graph.SmallestCircularRoute();
+	int a = 0;
+	std::cin >> a;
+	int b = 0;
+	std::cin >> b;
+	std::cout << graph.CommonAncestor(a, b);
 
 
 
@@ -84,23 +87,25 @@ CGraph::~CGraph()
 {
 	dispose();
 }
-int CGraph::SmallestCircularRoute()
+int CGraph::CommonAncestor(int a, int b)
 {
-	int min = INT_MAX;
-	for (int i = 0; i < _vertexes; ++i)
+	while (a != b)
 	{
-		for (int j = 0; j < _vertexes; ++j)
+		switch (a > b)
 		{
-			for (int k = 0; k < _vertexes; ++k)
-			{
-				if (((_matrix[i][j] * _matrix[j][k] * _matrix[i][k]) != 0) && ((_matrix[i][j] + _matrix[j][k] + _matrix[i][k]) < min))
-				{
-					min = _matrix[i][j] + _matrix[j][k] + _matrix[i][k];
-				}
-			}
+		case true:
+		{
+			a = a / 2;
+			break;
+		}
+		case false:
+		{
+			b = b / 2;
+			break;
+		}
 		}
 	}
-	return min;
+	return a;
 }
 
 void CGraph::PrintMatrix()

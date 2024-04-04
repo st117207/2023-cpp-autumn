@@ -30,7 +30,8 @@ public:
 	void ReadMatrix(int vertexes);
 	///????????? ???? ?????
 	void ReadEdges(const int edges, bool haveweight = false);
-	int SmallestCircularRoute();
+	int NumberImportantPlanets();
+
 
 private:
 	///??????? ??????? ????????? n*n ? ??????? ? ?????? ??????? m
@@ -53,6 +54,7 @@ private:
 	int _vertexes;
 	int _edges;
 	int** _matrix;
+	int** _matrixMinor;
 	SEdge* _edge;
 };
 
@@ -61,8 +63,8 @@ int main(int argc, char* argv[])
 	CGraph graph;
 	int n = 0;
 	std::cin >> n;
-	graph.ReadMatrix(n);
-	std::cout << graph.SmallestCircularRoute();
+	graph.ReadEdges(n - 1);
+	std::cout << graph.NumberImportantPlanets();
 
 
 
@@ -84,24 +86,33 @@ CGraph::~CGraph()
 {
 	dispose();
 }
-int CGraph::SmallestCircularRoute()
+
+int CGraph::NumberImportantPlanets()
 {
-	int min = INT_MAX;
+	int temp = 0;
+	int itog = 0;
+	if (_matrix == nullptr)
+	{
+		initMatrixFromEdges();
+	}
 	for (int i = 0; i < _vertexes; ++i)
 	{
 		for (int j = 0; j < _vertexes; ++j)
 		{
-			for (int k = 0; k < _vertexes; ++k)
+			if ((_matrix[i][j]+_matrix[j][i]) == 1)
 			{
-				if (((_matrix[i][j] * _matrix[j][k] * _matrix[i][k]) != 0) && ((_matrix[i][j] + _matrix[j][k] + _matrix[i][k]) < min))
-				{
-					min = _matrix[i][j] + _matrix[j][k] + _matrix[i][k];
-				}
+				temp = temp + 1;
 			}
 		}
+		if (temp > 1)
+		{
+			itog = itog + 1;
+		}
+		temp = 0;
 	}
-	return min;
+	return itog;
 }
+
 
 void CGraph::PrintMatrix()
 {
@@ -274,7 +285,7 @@ int CGraph::getVertexesCountFromEdges()
 		res = (res > _edge[i].a ? res : _edge[i].a);
 		res = (res > _edge[i].b ? res : _edge[i].b);
 	}
-	return res + 1;
+	return res;
 }
 
 std::ostream& operator<<(std::ostream& stream, const SEdge& edge)
