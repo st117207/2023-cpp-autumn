@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
 		}
 		}
 	}
-	std::cout<<a;
+	std::cout << a;
 	return EXIT_SUCCESS;
 }
 
